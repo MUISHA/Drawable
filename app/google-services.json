@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "869487965496",
+    "firebase_url": "https://drawable-ded9e.firebaseio.com",
+    "project_id": "drawable-ded9e",
+    "storage_bucket": "drawable-ded9e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:869487965496:android:3c4f3c33bef52589ce3dcd",
+        "android_client_info": {
+          "package_name": "com.example.drawable"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "869487965496-6re6e03debh6fqkalgmle8goqsu1a8ke.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDju2dDYKPpc78E13dvEj7d1CuN6qUzSxw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "869487965496-6re6e03debh6fqkalgmle8goqsu1a8ke.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

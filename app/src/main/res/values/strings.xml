@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Drawable</string>
+    <string name="maps_key" translatable="false">AIzaSyDCJgh7VFcxwvWIRtWkonArvEBlYYfHvFE</string>
+
+    <string name="open_drawer">Open Drawer</string>
+    <string name="cloase_drawer">Close Drawer</string>
+    <string name="nam_exit">Exit</string>
+    <string name="etesvousur">Vous voulez quitté</string>
+    <string name="com">Email</string>
+    <string name="fachion_kingqueen">\@fachion_kingqueen</string>
+    <string name="aganze_zagabe_gloire">AGANZE ZAGABE Gloire</string>
+
+    <string name="facebook_app_id">324411598780037</string>
+    <string name="fb_login_protocol_scheme">fb324411598780037</string>
+
+</resources>
