@@ -12,4 +12,14 @@
     <color name="colorTransparent">#00000000</color>
     <color name="lightGray">#F2F2F2</color>
     <color name="disabledBtnBg">#999999</color>
+    <!--
+         <color name="colorPrimary">#ff4800</color>
+         <color name="colorPrimaryDark">#dc4a10</color>
+         <color name="colorAccent">#009cfd</color>
+    -->
+
+
+    <color name="colorPrimaryEditor">#009cfd</color>
+    <color name="colorPrimaryDarkEditor">#1284ca</color>
+    <color name="colorAccentEditor">#e24000</color>
 </resources>

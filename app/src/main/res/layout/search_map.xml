@@ -6,6 +6,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".maps.SearchMap">
+
+    <com.mancj.materialsearchbar.MaterialSearchBar
+        style="@style/MaterialSearchBarLight"
+        app:mt_speechMode="true"
+        app:mt_hint="Custom hint"
+        app:mt_maxSuggestionsCount="10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/searchBar_" />
     <fragment
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -13,14 +22,6 @@
         android:name="com.google.android.gms.maps.SupportMapFragment"
 
         />
-    <SearchView
-        android:id="@+id/search_map"
-        android:layout_margin="10dp"
-        android:queryHint="Recherch...."
-        android:elevation="5dp"
-        android:iconifiedByDefault="false"
-        android:background="@drawable/btn_round"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints" />
+
+
 </RelativeLayout>

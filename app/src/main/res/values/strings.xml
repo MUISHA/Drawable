@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Drawable</string>
-    <string name="maps_key" translatable="false">AIzaSyDCJgh7VFcxwvWIRtWkonArvEBlYYfHvFE</string>
+    <string name="maps_key" translatable="true">AIzaSyBx_RpwgmlHRMSZwzhIa5WITpv-wVwWwEE</string>
+    <!-- 
+
+    -->
 
     <string name="open_drawer">Open Drawer</string>
     <string name="cloase_drawer">Close Drawer</string>
@@ -12,5 +15,12 @@
 
     <string name="facebook_app_id">324411598780037</string>
     <string name="fb_login_protocol_scheme">fb324411598780037</string>
+         <!--
+
+        -->
+    <string name="gender_unknown">Unknown</string>
+    <string name="gender_male">Male</string>
+    <string name="gender_female">Female</string>
+
 
 </resources>

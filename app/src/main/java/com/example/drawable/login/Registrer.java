@@ -1,7 +1,10 @@
 package com.example.drawable.login;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.ContentResolver;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Bundle;
@@ -15,7 +18,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.drawable.R;
-import com.example.drawable.Upload;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -27,6 +29,7 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
+import com.theartofdev.edmodo.cropper.CropImage;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -41,8 +44,7 @@ public class Registrer extends AppCompatActivity {
     private StorageReference mStorageRef;
     private DatabaseReference mDatabaseRef;
     private StorageTask mUploadTask;
-
-
+    private Uri mCropImageUri;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,9 +85,30 @@ public class Registrer extends AppCompatActivity {
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(intent, PICK_IMAGE_REQUEST);
     }
+    @SuppressLint("NewApi")
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == CropImage.PICK_IMAGE_CHOOSER_REQUEST_CODE
+                && resultCode == AppCompatActivity.RESULT_OK) {
+            Uri imageUri = CropImage.getPickImageResultUri(this, data);
+
+
+            boolean requirePermissions = false;
+            if (CropImage.isReadExternalStoragePermissionsRequired(this, imageUri)) {
+
+                // request permissions and handle the result in onRequestPermissionsResult()
+                requirePermissions = true;
+                mCropImageUri = imageUri;
+                requestPermissions(
+                        new String[] {Manifest.permission.READ_EXTERNAL_STORAGE},
+                        CropImage.PICK_IMAGE_PERMISSIONS_REQUEST_CODE);
+            } else {
+                mImageView.setImageURI(imageUri);
+                //mImageView.setImageUri(imageUri);
+            }
+        }
+
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK
                 && data != null && data.getData() != null) {
             mImageUri = data.getData();
@@ -93,6 +116,30 @@ public class Registrer extends AppCompatActivity {
             //Picasso.get(this).load(mImageUri).into(mImageView);
         }//
     }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+         if (requestCode == CropImage.CAMERA_CAPTURE_PERMISSIONS_REQUEST_CODE) {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    CropImage.startPickImageActivity(this);
+                } else {
+                    Toast.makeText(this, "Cancelling, required permissions are not granted", Toast.LENGTH_LONG)
+                            .show();
+                }
+            }
+            if (requestCode == CropImage.PICK_IMAGE_PERMISSIONS_REQUEST_CODE) {
+                if (mCropImageUri != null
+                        && grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    mImageView.setImageURI(mCropImageUri);
+                    //mCurrentFragment.setImageUri(mCropImageUri);
+                } else {
+                    Toast.makeText(this, "Cancelling, required permissions are not granted", Toast.LENGTH_LONG)
+                            .show();
+                }
+            }
+    }
+
     private String getFileExtension(Uri uri) {
         ContentResolver cR = getContentResolver();
         MimeTypeMap mime = MimeTypeMap.getSingleton();

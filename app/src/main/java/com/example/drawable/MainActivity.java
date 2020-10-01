@@ -15,6 +15,9 @@ import android.view.View;
 
 import com.example.drawable.design.Design;
 import com.example.drawable.login.Login;
+import com.example.drawable.maps.Cartographie;
+import com.example.drawable.maps.Maps;
+import com.example.drawable.maps.SearchMap;
 import com.example.drawable.phoneauthe.AuthentifiNuber;
 import com.google.android.material.navigation.NavigationView;
 
@@ -94,8 +97,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(auth);
                 break;
             case R.id.img_addlocation :
-               // Intent addlocation = new Intent(this, Addlocation.class);
-                //startActivity(addlocation);
+               Intent searchmap = new Intent(this, SearchMap.class);
+               startActivity(searchmap);
                 break;
             case R.id.img_profil :
                 //Intent appropos = new Intent(this, Appros.class);
@@ -106,12 +109,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 //startActivity(apropos);
                 break;
             case R.id.img_map :
-                //Intent maps = new Intent(this, Maps.class);
-               // startActivity(maps);
+                Intent carton = new Intent(this, Cartographie.class);
+                startActivity(carton);
                 break;
             case R.id.img_traking_sos :
-               // Intent traking = new Intent(this, Traking.class);
-               // startActivity(traking);
+               Intent SearchMap = new Intent(this, SearchMap.class);
+               startActivity(SearchMap);
                 break;
             default:
                 break;
@@ -205,7 +208,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.nav_helper :
                 Toast.makeText(this, "Helper app", Toast.LENGTH_SHORT).show();
                 break;
-
             default:
                 return super.onOptionsItemSelected(item);
         }

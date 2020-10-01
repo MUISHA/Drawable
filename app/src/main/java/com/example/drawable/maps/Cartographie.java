@@ -1,8 +1,5 @@
 package com.example.drawable.maps;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -11,6 +8,10 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.example.drawable.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -38,10 +39,10 @@ public class Cartographie extends AppCompatActivity implements LocationListener 
             @Override
             public void onMapReady(GoogleMap googleMap) {
                Cartographie.this.mMap = googleMap;
-                mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
-                mMap.moveCamera(CameraUpdateFactory.zoomBy(11));
+                mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+                mMap.moveCamera(CameraUpdateFactory.zoomBy(10));
                 mMap.setMyLocationEnabled(true);
-                mMap.addMarker(new MarkerOptions().position(new LatLng(0,0))
+                mMap.addMarker(new MarkerOptions().position(new LatLng(1.5497,30.2517))
                 .title("EMERGENCY SOS"));
             }
         });
@@ -84,7 +85,6 @@ public class Cartographie extends AppCompatActivity implements LocationListener 
             ChekingPermission();
         }
     }
-
     @Override
     protected void onPause() {
         super.onPause();
@@ -98,7 +98,6 @@ public class Cartographie extends AppCompatActivity implements LocationListener 
         super.onStop();
         finish();
     }
-
     @Override
     public void onLocationChanged(@NonNull Location location) {
         double lat = location.getLatitude();
@@ -109,17 +108,14 @@ public class Cartographie extends AppCompatActivity implements LocationListener 
             mMap.moveCamera(CameraUpdateFactory.newLatLng(getlocation));
         }
     }
-
     @Override
     public void onStatusChanged(String provider, int status, Bundle extras) {
 
     }
-
     @Override
     public void onProviderEnabled(@NonNull String provider) {
 
     }
-
     @Override
     public void onProviderDisabled(@NonNull String provider) {
 

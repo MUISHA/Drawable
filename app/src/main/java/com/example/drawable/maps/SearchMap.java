@@ -26,7 +26,7 @@ public class SearchMap extends AppCompatActivity implements OnMapReadyCallback {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.search_map);
-        searchView = findViewById(R.id.search_map);
+        searchView = findViewById(R.id.searchBar_);
         mapFragment = (SupportMapFragment)getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
